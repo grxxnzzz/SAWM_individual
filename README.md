@@ -1,7 +1,17 @@
-# SAWM Individual Work: Отчёт о безопасности веб-приложения
+# SAWM Individual Work
+Отчет о безопасности простого веб-приложения сделанного по ТЗ.
+
 **Студент: Григорий Зайка**
 
 **Группа: I2302, 3 курс**
+
+<p>
+<img height=48 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" />
+<img height=48 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
+<img height=48 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
+<img height=48 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/windows11/windows11-original.svg" />
+          
+</p>
 
 ## Тема: "Каталог компьютерных комплектующих"
 
@@ -14,12 +24,12 @@
 - **Слой данных**: SQLite база данных в `/database/`
 
 #### **Используемые технологии**
-- **Backend**: PHP 8.0+ с нативной объектно-ориентированной архитектурой
-- **База данных**: SQLite с PDO (PHP Data Objects)
-- **Хэширование паролей**: Argon2id (современный алгоритм)
-- **Веб-сервер**: PHP (localhost)
-- **Фронтенд**: Vanilla HTML/CSS без JavaScript фреймворков
-- **Протокол**: HTTP (localhost)
+- **Backend**: `PHP 8.0+` с нативной объектно-ориентированной архитектурой
+- **База данных**: `SQLite` с PDO (PHP Data Objects)
+- **Хэширование паролей**: `Argon2id` (современный алгоритм)
+- **Веб-сервер**: `PHP` (localhost)
+- **Фронтенд**: `Vanilla HTML/CSS` без JavaScript фреймворков
+- **Протокол**: `HTTP` (localhost)
 
 #### **Структура проекта**
 ```
@@ -33,29 +43,29 @@
 └── screenshots/     # Скриншоты
 ```
 
-### **2. Перечисление всех возможных уязвимостей (согласно OWASP Top 10 2023)**
+### **2. Перечисление всех возможных уязвимостей (согласно [OWASP Top 10 2025](https://owasp.org/Top10/2025/))**
 
-#### **`A01:2023 - Broken Access Control`**
+#### [**`A01:2025 - Broken Access Control`**](https://owasp.org/Top10/2025/A01_2025-Broken_Access_Control/)
 - **CSRF (Cross-Site Request Forgery)**: Отсутствие CSRF-токенов во всех формах
 - **Небезопасные прямые ссылки на объекты**: Возможен доступ к данным других пользователей через модификацию параметров
 - **Отсутствие rate limiting**: Нет ограничения запросов по IP-адресу
 
-#### **`A02:2023 - Cryptographic Failures`**
-- **Отсутствие HTTPS**: Сессионные куки передаются по HTTP
-- **Timing-атаки**: Разное время ответа для существующих/несуществующих пользователей
-- **Хранение конфиденциальных данных в логах**: Возможна утечка паролей при неправильном логировании
-
-#### **`A03:2023 - Injection`**
-- **SQL Injection**: Частично защищено, но есть уязвимости в LIKE-запросах
-- **XSS (Cross-Site Scripting)**: Защищено на выходе, но есть риски в динамических запросах
-- **Command Injection**: Нет защиты от инъекций команд в системных вызовах
-
-#### **`A05:2023 - Security Misconfiguration`**
+#### [**`A02:2025 - Security Misconfiguration`**](https://owasp.org/Top10/2025/A02_2025-Security_Misconfiguration/)
 - **Отсутствие security headers**: Нет CSP, X-Frame-Options, HSTS
 - **Отладочная информация**: Возможна утечка информации через сообщения об ошибках
 - **Неправильные настройки сессии**: Отсутствие secure flag для кук
 
-#### **`A07:2023 - Identification and Authentication Failures`**
+#### [**`A04:2025 - Cryptographic Failures`**](https://owasp.org/Top10/2025/A04_2025-Cryptographic_Failures/)
+- **Отсутствие HTTPS**: Сессионные куки передаются по HTTP
+- **Timing-атаки**: Разное время ответа для существующих/несуществующих пользователей
+- **Хранение конфиденциальных данных в логах**: Возможна утечка паролей при неправильном логировании
+
+#### [**`A05:2025 - Injection`**](https://owasp.org/Top10/2025/A05_2025-Injection/)
+- **SQL Injection**: Частично защищено, но есть уязвимости в LIKE-запросах
+- **XSS (Cross-Site Scripting)**: Защищено на выходе, но есть риски в динамических запросах
+- **Command Injection**: Нет защиты от инъекций команд в системных вызовах
+
+#### [**`A07:2025 - Authentication Failures`**](https://owasp.org/Top10/2025/A07_2025-Authentication_Failures/)
 - **Отсутствие 2FA**: Нет двухфакторной аутентификации
 - **Слабая политика паролей**: Минимальная длина 8 символов может быть недостаточной
 - **Предсказуемые сессионные ID**: Возможна фиксация сессии
