@@ -26,6 +26,11 @@ define('LOGIN_LOCKOUT_TIME', 900); // 15 минут в секундах
 // Длительность сессии (в секундах)
 define('SESSION_LIFETIME', 3600); // 1 час
 
+// Определение ролей гостя, менеджера и админа
+define('ROLE_GUEST', 'guest');
+define('ROLE_MANAGER', 'manager');
+define('ROLE_ADMIN', 'admin');
+
 // Настройки сессии для безопасности
 ini_set('session.cookie_httponly', 1);
 ini_set('session.cookie_secure', 0); // Использовать только через HTTPS

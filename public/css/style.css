@@ -293,3 +293,93 @@ button:hover,
         grid-template-columns: 1fr;
     }
 }
+
+/* Стили для ролей */
+.role-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.role-guest { 
+    background: #6c757d; 
+    color: white; 
+}
+
+.role-manager { 
+    background: #17a2b8; 
+    color: white; 
+}
+
+.role-admin { 
+    background: #dc3545; 
+    color: white; 
+}
+
+/* Кнопки управления */
+.part-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-small {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-small:hover {
+    opacity: 0.9;
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-warning {
+    background: #ffc107;
+    color: black;
+}
+
+.btn-info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Формы в админ-панели */
+.user-actions input[type="text"],
+.user-actions select {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .parts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .user-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .nav-links span {
+        display: block;
+        text-align: center;
+    }
+}

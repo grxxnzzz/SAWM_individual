@@ -191,6 +191,36 @@ class Auth {
     }
     
     /**
+     * Проверка, что пользователь имеет хотя бы одну из указанных ролей
+     */
+    public function hasAnyRole(array $roles) {
+        if (!$this->isAuthenticated()) {
+            return in_array(ROLE_GUEST, $roles);
+        }
+        return in_array($_SESSION['role'] ?? '', $roles);
+    }
+    
+    /**
+     * Требование определенной роли (редирект если не подходит)
+     */
+    public function requireRole($role) {
+        if (!$this->hasRole($role)) {
+            header('Location: /index.php');
+            exit;
+        }
+    }
+    
+    /**
+     * Требование одной из ролей (редирект если не подходит)
+     */
+    public function requireAnyRole(array $roles) {
+        if (!$this->hasAnyRole($roles)) {
+            header('Location: /index.php');
+            exit;
+        }
+    }
+
+    /**
      * Получение ID текущего пользователя
      * @return int|null ID пользователя или null
      */
